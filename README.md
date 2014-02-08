@@ -5,6 +5,6 @@ Work-Very-Much-In-Progress.
 
 HEROKU: http://fast-plateau-9803.herokuapp.com/
 
-TRAVIS: [![Build Status](https://travis-ci.org/ljleppan/wadror.png)(https://travis-ci.org/ljleppan/wadror)]
+TRAVIS: [![Build Status](https://travis-ci.org/ljleppan/wadror.png)](https://travis-ci.org/ljleppan/wadror)
 
-CODE CLIMATE: [![Code Climate](https://codeclimate.com/github/ljleppan/wadror.png)(https://codeclimate.com/github/ljleppan/wadror)]
+CODE CLIMATE: [![Code Climate](https://codeclimate.com/github/ljleppan/wadror.png)](https://codeclimate.com/github/ljleppan/wadror)
