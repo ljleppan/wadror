@@ -1,4 +1,5 @@
-== RateBeer
+# RateBeer
+
 Beer rating app for the Web Application Development: Ruby on Rails -course of University of Helsinki.
 
 Work-Very-Much-In-Progress.
