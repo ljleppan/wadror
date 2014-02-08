@@ -14,14 +14,14 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-08T15:58:17+02:00">2014-02-08T15:58:17+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-08T21:59:07+02:00">2014-02-08T21:59:07+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">81.61%</span></span>
+    (<span class="covered_percent"><span class="yellow">81.64%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>23</b> files in total.
-    <b>560</b> relevant lines. 
-    <span class="green"><b>457</b> lines covered</span> and
+    <b>561</b> relevant lines. 
+    <span class="green"><b>458</b> lines covered</span> and
     <span class="red"><b>103</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -152,12 +152,12 @@
       
       <tr>
         <td class="strong"><a href="#39ba7427bc00ff863cfddff15cac0df7ac616ad2" class="src_link" title="app/models/brewery.rb">app/models/brewery.rb</a></td>
-        <td class="red strong">61.11 %</td>
-        <td>29</td>
-        <td>18</td>
-        <td>11</td>
+        <td class="red strong">63.16 %</td>
+        <td>30</td>
+        <td>19</td>
+        <td>12</td>
         <td>7</td>
-        <td>3.5</td>
+        <td>3.4</td>
       </tr>
       
       <tr>
@@ -3311,10 +3311,10 @@
         <div class="source_table" id="39ba7427bc00ff863cfddff15cac0df7ac616ad2">
   <div class="header">
     <h3>app/models/brewery.rb</h3>
-    <h4><span class="red">61.11 %</span> covered</h4>
+    <h4><span class="red">63.16 %</span> covered</h4>
     <div>
-      <b>18</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>19</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
@@ -3349,148 +3349,154 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
+          <code class="ruby">  validates_presence_of :year</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
           <code class="ruby">  validates_numericality_of :year, {greater_than_or_equal_to: 1042,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">                                    only_integer: true}</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
           <code class="ruby">  validate :year_not_in_future</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  has_many :beers, dependent: :destroy</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
+          <code class="ruby">  has_many :beers, dependent: :destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
           <code class="ruby">  has_many :ratings, through: :beers</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">  def year_not_in_future</code>
         </li>
       
-        <li class="covered" data-hits="53" data-linenumber="13">
+        <li class="covered" data-hits="53" data-linenumber="14">
           <span class="hits">53</span>
           
-          <code class="ruby">    if year &gt; Date.today.year</code>
+          <code class="ruby">    if year.nil? or Date.today.year &lt; year</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="14">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
           <code class="ruby">      errors.add(:year, &quot;can&#39;t be in the future&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
           <code class="ruby">  def print_report</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="20">
           
           
           <code class="ruby">    puts name</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
+        <li class="missed" data-hits="0" data-linenumber="21">
           
           
           <code class="ruby">    puts &quot;established at year #{year}&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
+        <li class="missed" data-hits="0" data-linenumber="22">
           
           
           <code class="ruby">    puts &quot;number of beers #{beers.count}&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
+        <li class="missed" data-hits="0" data-linenumber="23">
           
           
           <code class="ruby">    puts &quot;number of ratings #{ratings.count}&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
           <code class="ruby">  def restart</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
           <code class="ruby">    self.year = 2014</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="28">
           
           
           <code class="ruby">    puts &quot;Changer year to #{year}&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">end</code>
@@ -4327,7 +4333,7 @@
         <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(page).to have_content &#39;List of ratings&#39;</code>
+          <code class="ruby">    expect(page).to have_content &#39;Listing ratings&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="39">

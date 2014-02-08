@@ -35,7 +35,7 @@ describe 'Ratings page' do
 
   it 'should be empty if no ratings exist' do
     visit ratings_path
-    expect(page).to have_content 'List of ratings'
+    expect(page).to have_content 'Listing ratings'
     expect(page).to have_content 'Number of ratings: 0'
   end
 

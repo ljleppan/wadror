@@ -1,0 +1,233 @@
+$light: #F0D8A8;
+$medium-light: #F0C078;
+$medium: #C09048;
+$medium-dark: #786048;
+$dark: #483030;
+
+$bordercolor:     $dark;
+$page-bg:         $medium-light;
+$content-bg:      #EFEFEF;
+$navi-bg:         #EFEFEF;
+$h1-bg:           $light;
+$tr-even:         lighten($light, 5);
+$tr-odd:          darken($light, 10);
+$btn-bg:          $medium-light;
+$btn-hover:       $light;
+$btn-border:      $dark;
+$logo:            $medium;
+$thead:           $medium;
+$text:            $dark;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body{
+  height: 100%;
+  background-color: $page-bg;
+}
+
+body{
+  background-color: $page-bg;
+  min-width: 780px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navibar{
+  width: 90%;
+
+  height: 30px;
+
+  padding-top: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  border: 1px solid $bordercolor;
+  border-top: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  background-color: $navi-bg;
+}
+
+.navibar .add_content_nav{
+  margin-left: 20px;
+}
+
+.navibar .user_management_nav{
+  text-align: right;
+  float: right;
+}
+
+.content{
+  padding-left: 25px;
+  padding-right: 25px;
+
+  width:80%;
+  min-height: calc(100% - 61px); //61 = navibar-heigth (25) + margin-top (25) + bottom border (6 with corners)
+
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-left: 1px solid $bordercolor;
+  border-right: 1px solid $bordercolor;
+
+  background-color: $content-bg;
+}
+
+h1 {
+  font-family: 'Quicksand', sans-serif;
+
+  padding: 40px;
+  margin-top: -25px;
+  margin-bottom: 25px;
+
+  border: 1px solid $bordercolor;
+  border-top: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  background-color: $h1-bg;
+}
+
+h1:after{
+  float: right;
+  font-family: 'Lobster', cursive;
+  content: "RateBeer";
+  font-size: 1.5em;
+  letter-spacing: 7px;
+  color: $logo;
+}
+
+h2, h3, p, ul{
+  margin-bottom: 10px;
+  color: $text;
+}
+
+table{
+  width: 60%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 10px;
+
+  border-collapse: collapse;
+  table-layout: auto;
+
+  color: $text;
+  background-color: $tr-odd;
+}
+
+table a{
+  text-decoration: none;
+}
+
+tr, th, td{
+  width: 100%;
+}
+
+thead{
+  border-bottom: 1px solid $bordercolor;
+  background-color: $thead;
+  height: 25px;
+}
+
+tfoot{
+  background-color: $thead;
+  border-top: 1px solid $bordercolor;
+  height: 25px;
+}
+
+tr:nth-child(even){
+  background-color: $tr-even;
+}
+
+td {
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+th, td{
+  border-right: 1px solid $bordercolor;
+}
+
+th:last-child, td:last-child{
+  border-right: 0;
+}
+
+ul{
+  list-style: none;
+}
+
+.content a[href$="new"], .content input[type="submit"], .navibar a{
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 4px;
+  padding: 5px;
+  text-decoration: none;
+  background-color: $btn-bg;
+  border: 2px solid $btn-border;
+  text-align: center;
+  font-weight: bold;
+  display:block;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navibar a{
+  display: inline;
+  border-width: 1px;
+}
+
+.content a[href$="new"]:hover, .content input[type="submit"]:hover, .navibar a:hover{
+  color: black;
+  background-color: $btn-hover;
+}
+
+form{
+  width: 100%;
+}
+
+form input, form select{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+form label{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+from option{
+  text-align: center;
+}
+
+.field_with_errors{
+  font-weight: bold;
+  color: red;
+}
+
+.field_with_errors select, .field_with_errors input{
+  border: 3px solid red;
+}
+
+#error_explanation{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#error_explanation ul li{
+  margin-left: 20px;
+}
+
+

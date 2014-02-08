@@ -7,9 +7,6 @@
     <tr>
       <th>Name</th>
       <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -21,9 +18,17 @@
       </tr>
     <% end %>
   </tbody>
+
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </tfoot>
+
 </table>
 
 <br>
 
-<%= link_to 'New Brewery', new_brewery_path if current_user %><br/>
 <%= link_to 'List of beers', beers_path %>
+<%= link_to 'New Brewery', new_brewery_path if current_user %><br/>
