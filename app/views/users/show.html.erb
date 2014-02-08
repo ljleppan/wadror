@@ -34,7 +34,7 @@
   <% end %>
 </p>
 
-<h3>Memberships</h3>
+<h2>Memberships</h2>
 <ul>
   <% @user.beer_clubs.each do |club| %>
   <li>
@@ -42,25 +42,73 @@
   </li>
   <% end %>
 </ul>
+<br>
+<h2>Ratings</h2>
 
-<h3>Ratings</h3>
+<% if not @user.ratings.empty? %>
 
-<ul>
-  <% @user.ratings.each do |rating| %>
-  <li>
-    <%= rating.to_s %>
-    <% if @user == current_user %>
-      <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?'} %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+    <table>
+      <thead>
+      <tr>
+        <th>Beer</th>
+        <th>Style</th>
+        <th>Brewery</th>
+        <th>Score</th>
+        <% if current_user == @user %>
+          <th></th>
+        <% end %>
+      </tr>
+      </thead>
 
-<% if current_user == @user %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <% if current_user.admin %>
-    <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <% end %>
+      <tbody>
+      <% @user.ratings.each do |rating| %>
+          <tr>
+            <td>
+              <%= link_to rating.beer.name, rating.beer %>
+            </td>
+            <td>
+              <%= rating.beer.style %>
+            </td>
+            <td>
+              <%= link_to rating.beer.brewery.name, rating.beer.brewery %>
+            </td>
+            <td>
+              <%= rating.score %>
+            </td>
+            <% if current_user == @user %>
+              <td>
+                <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?'} %>
+              </td>
+            <% end %>
+          </tr>
+      <% end %>
+      </tbody>
+
+      <tfoot>
+      <tr>
+        <th>Beer</th>
+        <th>Style</th>
+        <th>Brewery</th>
+        <th>Score</th>
+        <% if current_user == @user %>
+            <th></th>
+        <% end %>
+      </tr>
+      </tfoot>
+
+    </table>
+
+<% else %>
+    No known ratings.
 <% end %>
 
-<%= link_to 'Back', users_path %>
+<span class="tools">
+  <% if current_user == @user %>
+    <%= link_to 'Edit', edit_user_path(@user) %>
+    <% if current_user.admin %>
+      <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <% end %>
+
+  <%= link_to 'Back', users_path %>
+</span>

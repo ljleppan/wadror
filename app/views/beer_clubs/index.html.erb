@@ -1,5 +1,6 @@
 <h1>Listing beer clubs</h1>
 
+<% if not @beer_clubs.empty? %>
 <table>
   <thead>
     <tr>
@@ -27,7 +28,8 @@
     </tr>
   </tfoot>
 </table>
-
-<br>
+<% else %>
+<p>No known beer clubs.</p>
+<% end %>
 
 <%= link_to 'New Beer club', new_beer_club_path if current_user %>

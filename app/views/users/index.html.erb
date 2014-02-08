@@ -1,5 +1,6 @@
 <h1>Listing users</h1>
 
+<% if not @users.empty? %>
 <table>
   <thead>
     <tr>
@@ -20,9 +21,9 @@
       <th>Username</th>
     </tr>
   </tfoot>
-
 </table>
-
-<br>
+<% else %>
+    No known users.
+<% end %>
 
 <%= link_to 'New User', new_user_path %>

@@ -36,16 +36,22 @@
         1,
         null,
         1,
-        124,
-        70,
+        142,
+        78,
         null,
         null,
         1,
         4,
         null,
+        null,
+        1,
+        0,
+        0,
+        null,
         null
       ],
       "/home/loezi/ratebeer/app/controllers/beer_clubs_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -123,6 +129,7 @@
         null
       ],
       "/home/loezi/ratebeer/app/controllers/beers_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -206,6 +213,7 @@
         null
       ],
       "/home/loezi/ratebeer/app/controllers/breweries_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -1057,6 +1065,6 @@
         null
       ]
     },
-    "timestamp": 1391891208
+    "timestamp": 1391897083
   }
 }

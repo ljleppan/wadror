@@ -1,5 +1,6 @@
 <h1>Listing beers</h1>
 
+<% if not @beers.empty? %>
 <table>
   <thead>
     <tr>
@@ -28,8 +29,8 @@
   </tfoot>
 
 </table>
+<% else %>
+    No known beers.
+<% end %>
 
-<br>
-
-<%= link_to 'List of breweries', breweries_path %>
 <%= link_to 'New Beer', new_beer_path if current_user %><br />

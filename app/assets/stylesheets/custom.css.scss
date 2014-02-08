@@ -17,6 +17,7 @@ $btn-border:      $dark;
 $logo:            $medium;
 $thead:           $medium;
 $text:            $dark;
+$login-btn:        $medium;
 
 * {
   padding: 0;
@@ -79,6 +80,9 @@ body{
   border-right: 1px solid $bordercolor;
 
   background-color: $content-bg;
+
+  text-align: center;
+  color: $text;
 }
 
 h1 {
@@ -106,8 +110,7 @@ h1:after{
 }
 
 h2, h3, p, ul{
-  margin-bottom: 10px;
-  color: $text;
+  margin-bottom: 20px;
 }
 
 table{
@@ -117,6 +120,7 @@ table{
   margin-right: auto;
 
   padding-top: 10px;
+  margin-bottom: 15px;
 
   border-collapse: collapse;
   table-layout: auto;
@@ -167,7 +171,7 @@ ul{
   list-style: none;
 }
 
-.content a[href$="new"], .content input[type="submit"], .navibar a{
+.content a[href$="new"], .content input[type="submit"], .navibar a, .tools a{
   font-family: 'Quicksand', sans-serif;
   border-radius: 4px;
   padding: 5px;
@@ -187,7 +191,11 @@ ul{
   border-width: 1px;
 }
 
-.content a[href$="new"]:hover, .content input[type="submit"]:hover, .navibar a:hover{
+.navibar span:last-child a:last-child{
+  background-color: $login-btn;
+}
+
+.content a[href$="new"]:hover, .content input[type="submit"]:hover, .navibar a:hover, .tools a:hover{
   color: black;
   background-color: $btn-hover;
 }
@@ -231,4 +239,28 @@ from option{
   margin-left: 20px;
 }
 
+.tools{
+  padding-top: 40px;
+  display: block;
+  text-align: center;
+}
 
+.tools a{
+  border-radius: 0;
+  border-width: 1px;
+  display: inline-block;
+  width: 75px;
+  margin: 0;
+  margin-left: -2px;
+  margin-right: -3px;
+}
+
+.tools a:first-child{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius:5px;
+}
+
+.tools a:last-child{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius:5px;
+}

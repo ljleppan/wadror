@@ -2,10 +2,13 @@
 
 <p> Number of ratings: <%= @ratings.count %> </p>
 
+<% if not @ratings.empty? %>
+
 <table>
   <thead>
     <tr>
       <th>Beer</th>
+      <th>Style</th>
       <th>Brewery</th>
       <th>Score</th>
       <th>User</th>
@@ -17,6 +20,9 @@
     <tr>
       <td>
         <%= link_to rating.beer.name, rating.beer %>
+      </td>
+      <td>
+        <%= rating.beer.style %>
       </td>
       <td>
         <%= link_to rating.beer.brewery.name, rating.beer.brewery %>
@@ -34,6 +40,7 @@
   <tfoot>
     <tr>
       <th>Beer</th>
+      <th>Style</th>
       <th>Brewery</th>
       <th>Score</th>
       <th>User</th>
@@ -42,17 +49,8 @@
 
 </table>
 
-
-<!--
-<ul>
-  <#% @ratings.each do |rating| %>
-      <li>
-        <#%= rating.beer.name %>
-        <#%= link_to rating.user.username, rating.user %>
-      </li>
-  <#% end %>
-</ul>
-
--->
+<% else %>
+  No known ratings.
+<% end %>
 
 <p><%= link_to 'New rating', new_rating_path if current_user %></p>

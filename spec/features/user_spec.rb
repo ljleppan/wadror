@@ -25,15 +25,15 @@ describe 'User page' do
 
       expect(page).to have_content 'Ratings'
       expect(page).to have_content 'Has made 2 ratings'
-      expect(page).to have_content 'Iso 3 10'
-      expect(page).to have_content 'Karhu 12'
+      expect(page).to have_content 'Iso 3 Lager Koff 10'
+      expect(page).to have_content 'Karhu Lager Koff 12'
     end
 
     it 'should not display other users\' ratings' do
       visit user_path(user1)
 
-      expect(page).to_not have_content 'Iso 3 22'
-      expect(page).to_not have_content 'Karhu 23'
+      expect(page).to_not have_content 'Iso 3 Lager Koff 22'
+      expect(page).to_not have_content 'Karhu Lager Koff 23'
     end
 
     it 'delete button should delete said rating' do
@@ -41,7 +41,7 @@ describe 'User page' do
       visit user_path(user1)
 
       expect{
-        page.find('li', text:'Iso 3').click_link('delete')
+        page.find('tr', text:'Iso 3').click_link('delete')
       }.to change{Rating.count}.by(-1)
     end
   end

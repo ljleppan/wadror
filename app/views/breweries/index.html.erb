@@ -2,6 +2,7 @@
 
 <p> Number of breweries: <%= @breweries.count %> </p> 
 
+<% if not @breweries.empty? %>
 <table>
   <thead>
     <tr>
@@ -25,10 +26,10 @@
       <th>Year</th>
     </tr>
   </tfoot>
-
 </table>
 
-<br>
+<% else %>
+    no known breweries.
+<% end %>
 
-<%= link_to 'List of beers', beers_path %>
 <%= link_to 'New Brewery', new_brewery_path if current_user %><br/>
