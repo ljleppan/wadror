@@ -1,10 +1,15 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: LEg4NpiEZISHjMMeLl/UZuqOTahaHBeL5H5Pds6c+2g23Lr9Pf4rrIKZDyWq1enHsHb3ILzjzDrGpQ6Br4/qMkYBv0ngqSl1OWMWdjss/KFaacmUVmrNrXCXesMOBI3F35xKROGUWxzeVPXulJIIiertaXW2RbjGrga87S/Ka1M=
+  app: fast-plateau-9803
+  on:
+    repo: ljleppan/wadror

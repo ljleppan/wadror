@@ -4,4 +4,5 @@ Beer rating app for the Web Application Development: Ruby on Rails -course of Un
 Work-Very-Much-In-Progress.
 
 HEROKU: http://fast-plateau-9803.herokuapp.com/
+
 TRAVIS: [![Build Status](https://travis-ci.org/ljleppan/wadror-public.png)](https://travis-ci.org/ljleppan/wadror-public)
