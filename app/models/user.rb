@@ -14,4 +14,22 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :beer_clubs, through: :memberships
 
+  def favourite_beer
+    return nil if ratings.empty?
+    ratings.order(score: :desc).limit(1).first.beer
+  end
+
+  def favourite_style
+    return nil if ratings.empty?
+    query = 'SELECT style, avg(score) AS average FROM ratings LEFT OUTER JOIN beers ON ratings.beer_id = beers.id GROUP BY style ORDER BY average DESC'
+    ActiveRecord::Base.connection.execute(query).first['style']
+  end
+
+  def favourite_brewery
+    return nil if ratings.empty?
+    query = 'SELECT breweries.id, avg(score) AS average FROM ratings LEFT OUTER JOIN beers ON ratings.beer_id = beers.id LEFT OUTER JOIN breweries ON beers.brewery_id = breweries.id GROUP BY breweries.id ORDER BY average DESC'
+    favourite_brewery_id = ActiveRecord::Base.connection.execute(query).first['id']
+    Brewery.find(favourite_brewery_id)
+  end
+
 end

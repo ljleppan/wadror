@@ -1,19 +1,22 @@
 source 'https://rubygems.org'
 
 gem 'rb-readline'
-
-gem 'byebug', group: [:development, :test]
-
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
-
 group :development, :test do
+  gem 'byebug'
   gem 'sqlite3'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 2.14.1'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov', require: false
 end
 
 group :production do
