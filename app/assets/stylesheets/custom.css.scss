@@ -66,9 +66,10 @@ body{
 .content{
   padding-left: 25px;
   padding-right: 25px;
+  padding-bottom: 25px;
 
   width:80%;
-  min-height: calc(100% - 61px); //61 = navibar-heigth (25) + margin-top (25) + bottom border (6 with corners)
+  min-height: calc(100% - 86px); //86 = navibar-heigth (25) + margin-top (25) + padding-bottom (25) + navibar-border (6 with corners)
 
   margin-top: 25px;
   margin-left: auto;

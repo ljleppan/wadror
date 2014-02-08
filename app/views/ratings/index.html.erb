@@ -2,13 +2,57 @@
 
 <p> Number of ratings: <%= @ratings.count %> </p>
 
-<ul>
-  <% @ratings.each do |rating| %>
-      <li>
-        <%= rating %>
-        <%= link_to rating.user.username, rating.user %>
-      </li>
-  <% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Beer</th>
+      <th>Brewery</th>
+      <th>Score</th>
+      <th>User</th>
+    </tr>
+  </thead>
 
-  <p><%= link_to 'New rating', new_rating_path if current_user %></p>
+  <tbody>
+    <% @ratings.each do |rating| %>
+    <tr>
+      <td>
+        <%= link_to rating.beer.name, rating.beer %>
+      </td>
+      <td>
+        <%= link_to rating.beer.brewery.name, rating.beer.brewery %>
+      </td>
+      <td>
+        <%= rating.score %>
+      </td>
+      <td>
+        <%= link_to rating.user.username, rating.user %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th>Beer</th>
+      <th>Brewery</th>
+      <th>Score</th>
+      <th>User</th>
+    </tr>
+  </tfoot>
+
+</table>
+
+
+<!--
+<ul>
+  <#% @ratings.each do |rating| %>
+      <li>
+        <#%= rating.beer.name %>
+        <#%= link_to rating.user.username, rating.user %>
+      </li>
+  <#% end %>
 </ul>
+
+-->
+
+<p><%= link_to 'New rating', new_rating_path if current_user %></p>
