@@ -36,12 +36,17 @@
         1,
         null,
         1,
-        91,
-        37,
+        130,
+        64,
+        null,
+        null,
+        1,
+        4,
         null,
         null
       ],
       "/home/loezi/ratebeer/app/controllers/beer_clubs_controller.rb": [
+        1,
         1,
         1,
         null,
@@ -118,6 +123,7 @@
         null
       ],
       "/home/loezi/ratebeer/app/controllers/beers_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -274,13 +280,6 @@
         1,
         0,
         null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        null,
         null
       ],
       "/home/loezi/ratebeer/app/controllers/memberships_controller.rb": [
@@ -365,6 +364,7 @@
       ],
       "/home/loezi/ratebeer/app/controllers/ratings_controller.rb": [
         1,
+        null,
         1,
         2,
         null,
@@ -405,10 +405,10 @@
         6,
         null,
         6,
-        3,
+        1,
         null,
-        3,
-        3,
+        5,
+        5,
         null,
         null,
         null,
@@ -488,7 +488,7 @@
         1,
         null,
         1,
-        15,
+        17,
         null,
         null,
         null,
@@ -587,18 +587,18 @@
         1,
         null,
         1,
-        27,
+        29,
         20,
         null,
         null,
         1,
-        27,
+        29,
         20,
         20,
         null,
         null,
         1,
-        27,
+        29,
         20,
         20,
         20,
@@ -1056,6 +1056,6 @@
         null
       ]
     },
-    "timestamp": 1391863038
+    "timestamp": 1391866335
   }
 }

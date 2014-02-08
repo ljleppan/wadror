@@ -25,5 +25,7 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
+<% if current_user %>
+  <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
+<% end %>
 <%= link_to 'Back', breweries_path %>
