@@ -13,3 +13,4 @@ deploy:
   app: fast-plateau-9803
   on:
     repo: ljleppan/wadror
+  run: "rake db:migrate"
