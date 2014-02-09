@@ -534,6 +534,8 @@
         null,
         1,
         1,
+        null,
+        1,
         null
       ],
       "/home/loezi/ratebeer/app/models/brewery.rb": [
@@ -551,7 +553,9 @@
         null,
         1,
         53,
+        53,
         0,
+        null,
         null,
         null,
         null,
@@ -1065,6 +1069,6 @@
         null
       ]
     },
-    "timestamp": 1391942730
+    "timestamp": 1391944611
   }
 }

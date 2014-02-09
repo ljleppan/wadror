@@ -11,8 +11,10 @@ class Brewery < ActiveRecord::Base
   has_many :ratings, through: :beers
 
   def year_not_in_future
-    if year.nil? or Date.today.year < year
-      errors.add(:year, "can't be in the future")
+    unless year.nil?
+      if Date.today.year < year
+        errors.add(:year, "can't be in the future")
+      end
     end
   end
 
