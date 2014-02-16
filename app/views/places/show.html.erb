@@ -1,0 +1,13 @@
+<h1><%= @place.name %></h1>
+
+<p>
+  <%= @place.street %><br />
+  <%= @place.zip %> <%= @place.city %>
+</p>
+
+<p>
+  Average rating:<br />
+  <%= @place.overall %>
+</p>
+
+<iframe src='<%= @place.blogmap %>' width='300' height='300' ></iframe>

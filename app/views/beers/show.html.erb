@@ -18,9 +18,21 @@
 <% if @beer.ratings.empty? %>
     Beer has not yet been rated!
 <% else %>
-    Beer has <%=pluralize(@beer.ratings.count, 'rating')%>, average rating <%= @beer.average_rating %>
+    Beer has <%=pluralize(@beer.ratings.count, 'rating')%>, average rating <%= "%.2f" % @beer.average_rating %>
 <% end %>
 </p>
+
+<% if current_user %>
+<div>
+  <h2>Rate</h2>
+  <%= form_for(@rating) do |f| %>
+    <%= f.hidden_field(:beer_id)%>
+    <%= f.label :score %>
+    <%= f.number_field :score, min:0 %>
+    <%= f.submit 'Rate' %>
+  <% end %>
+</div>
+<% end %>
 
 <span class="tools">
   <% if current_user %>

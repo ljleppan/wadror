@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'simplecov'
+require 'webmock/rspec'
 
 #Simplevoc
 SimpleCov.start

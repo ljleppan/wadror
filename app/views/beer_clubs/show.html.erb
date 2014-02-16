@@ -14,7 +14,7 @@
   <%= @beer_club.city %>
 </p>
 
-<h3>Members</h3>
+<h2>Members</h2>
 <ul>
   <% @beer_club.users.each do |user| %>
       <li>
@@ -22,6 +22,17 @@
       </li>
   <% end %>
 </ul>
+
+<% if current_user %>
+    <% unless @beer_club.memberships.find_by user_id:current_user.id %>
+      <div>
+        <%= form_for(@membership) do |f| %>
+          <%= f.hidden_field(:beer_club_id)%>
+          <%= f.submit 'Join the club' %>
+        <% end %>
+      </div>
+    <%end %>
+<% end %>
 
 <span class="tools">
   <% if current_user %>
