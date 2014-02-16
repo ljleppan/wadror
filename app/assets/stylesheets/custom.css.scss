@@ -31,7 +31,7 @@ html, body{
 
 body{
   background-color: $page-bg;
-  min-width: 850px;
+  min-width: 900px;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -53,16 +53,26 @@ body{
   border-bottom-right-radius: 5px;
 
   background-color: $navi-bg;
+
+  text-align:center;
+}
+
+.navibar span{
+}
+
+.navibar .browse_content_nav{
+  display:block;
+  float:left;
 }
 
 .navibar .add_content_nav{
-  margin-left: 15px;
+
 }
 
 .navibar .user_management_nav{
+  display:block;
   text-align: right;
   float: right;
-  margin-left: 15px;
 }
 
 .content{
@@ -293,4 +303,8 @@ form label{
 .tools a:last-child{
   border-top-right-radius: 5px;
   border-bottom-right-radius:5px;
+}
+
+iframe{
+  border: 1px solid $bordercolor;
 }

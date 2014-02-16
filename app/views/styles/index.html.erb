@@ -2,22 +2,20 @@
 
 <table>
   <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+    <th>Name</th>
   </thead>
 
   <tbody>
     <% @styles.each do |style| %>
       <tr>
         <td><%= link_to style.name, style %></td>
-        <td><%= link_to 'Edit', edit_style_path(style) %></td>
-        <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+
+  <tfoot>
+    <th>Name</th>
+  </tfoot>
 </table>
 
 <br>
