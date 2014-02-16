@@ -21,8 +21,10 @@ class User < ActiveRecord::Base
 
   def favourite_style
     return nil if ratings.empty?
-    query = 'SELECT style, avg(score) AS average FROM ratings LEFT OUTER JOIN beers ON ratings.beer_id = beers.id GROUP BY style ORDER BY average DESC'
-    ActiveRecord::Base.connection.execute(query).first['style']
+    query = 'SELECT style_id, avg(score) AS average FROM ratings LEFT OUTER JOIN beers ON ratings.beer_id = beers.id GROUP BY style_id ORDER BY average DESC'
+    style_id = ActiveRecord::Base.connection.execute(query).first['style_id']
+    Style.find(style_id)
+
   end
 
   def favourite_brewery

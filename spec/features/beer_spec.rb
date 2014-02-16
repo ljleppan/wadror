@@ -3,6 +3,7 @@ include OwnTestHelper
 
 describe 'Adding a beer' do
   let!(:brewery) { FactoryGirl.create :brewery, name:'Koff' }
+  let!(:style) {FactoryGirl.create :style}
   let!(:user) { FactoryGirl.create :user }
 
   before :each do
@@ -21,6 +22,7 @@ describe 'Adding a beer' do
 
   it 'succeeds if name is not blank' do
     fill_in('beer[name]', with:'Iso 3')
+
 
     expect{
       click_button('Create Beer')

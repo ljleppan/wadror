@@ -7,7 +7,8 @@ describe 'User page' do
   let!(:beer1) { FactoryGirl.create :beer, name:'Iso 3', brewery:brewery1 }
   let!(:beer2) { FactoryGirl.create :beer, name:'Karhu', brewery:brewery1 }
   let!(:beer3) { FactoryGirl.create :beer, name:'Olvi', brewery:brewery2 }
-  let!(:beer4) { FactoryGirl.create :beer, name:'Weizze', style:'Weizen', brewery:brewery1 }
+  let!(:style2){ FactoryGirl.create :style, name:'Weizen' }
+  let!(:beer4) { FactoryGirl.create :beer, name:'Weizze', style:style2, brewery:brewery1 }
   let!(:user1) { FactoryGirl.create :user }
   let!(:user2) { FactoryGirl.create :user, username:'Matti', password:'P4ssu', password_confirmation:'P4ssu' }
 

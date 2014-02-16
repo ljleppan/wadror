@@ -32,7 +32,11 @@
         <td><%=place.city %></td>
         <td><%=place.zip %></td>
         <td><%=place.country %></td>
-        <td><%="%.1f" %place.overall %></td>
+        <td>
+          <% unless place.overall.nil? %>
+            <%="%.1f" % place.overall %>
+          <% end %>
+         </td>
       </tr>
     <% end %>
     <tfoot>
