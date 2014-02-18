@@ -1,22 +1,27 @@
-<h1><%= @brewery.name %></h1>
+<h1>
+  <%= @brewery.name %> <br />
+  <% if not @brewery.active  %>
+      <span class="retired">Retired</span>
+  <% end %>
+</h1>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <i>Established at <%= @brewery.year %></i>
-</p>
-
-<p>
-  Number of beers
-  <%= @brewery.beers.count %>
-</p>
-
-<p>
-  <% @brewery.beers.each do |beer| %>
-    <%= link_to beer.name, beer %>
+  <i>Established <%= @brewery.year %></i><br />
+  <% if not @brewery.active  %>
+      <span class="retired">Retired</span>
   <% end %>
 </p>
 
+<h2>Beers</h2>
+<% if @brewery.beers.empty? %>
+    No known beers.
+<% else %>
+    <%= render 'beers/list', beers:@brewery.beers %>
+<% end %>
+
+<h2>Ratings</h2>
 <p>
   <% if @brewery.ratings.empty? %>
       The brewery has no ratings!
@@ -24,6 +29,10 @@
       Has <%=pluralize(@brewery.ratings.count, 'rating')%>, average rating <%= @brewery.average_rating %>
   <% end %>
 </p>
+
+<span class="tools">
+  <%= link_to 'change activity', toggle_activity_brewery_path(@brewery.id), method: :post %>
+</span>
 
 <span class="tools">
   <% if current_user %>

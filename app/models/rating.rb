@@ -7,6 +7,8 @@ class Rating < ActiveRecord::Base
   belongs_to :beer
   belongs_to :user
 
+  scope :recent_5,  -> { order(created_at: :desc).limit(5) }
+
   def to_s
     "#{self.beer.name} #{self.score}"
   end

@@ -1,34 +1,7 @@
 <h1>Listing beers</h1>
 
 <% if not @beers.empty? %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Style</th>
-      <th>Brewery</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @beers.each do |beer| %>
-      <tr>
-        <td><%= link_to beer.name, beer %></td>
-        <td><%= link_to beer.style.name, beer.style %></td>
-        <td><%= link_to beer.brewery.name, beer.brewery %></td>
-      </tr>
-    <% end %>
-  </tbody>
-
-  <tfoot>
-    <tr>
-      <th>Name</th>
-      <th>Style</th>
-      <th>Brewery</th>
-    </tr>
-  </tfoot>
-
-</table>
+    <%= render 'list', beers:@beers %>
 <% else %>
     No known beers.
 <% end %>

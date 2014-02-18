@@ -1,26 +1,33 @@
 Ratebeer::Application.routes.draw do
-  resources :memberships, only: [:new, :create, :destroy]
+  resources :memberships, only: [:new, :create, :destroy] do
+    post 'confirm', on: :member
+  end
 
   resources :beer_clubs
 
   resources :users
 
   resources :beers
+  get 'beerlist', to:'beers#list'
+  get 'ngbeerlist', to:'beers#nglist'
 
-  resources :breweries
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
+
+  root 'breweries#index'
+  get 'ngbrewerylist', to:'breweries#nglist'
 
   resources :styles
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  resources :ratings, only: [:index, :new, :create, :destroy]
+
   resources :places, only: [:index, :show]
   post 'places', to: 'places#search'
 
-  root 'breweries#index'
-
   get 'kaikki_bisset', to: 'beers#index'
-
-  resources :ratings, only: [:index, :new, :create, :destroy]
 
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'

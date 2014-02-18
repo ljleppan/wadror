@@ -16,12 +16,29 @@
 
 <h2>Members</h2>
 <ul>
-  <% @beer_club.users.each do |user| %>
+  <% @beer_club.memberships.confirmed.each do |membership| %>
       <li>
-        <%= link_to user.username, user %>
+        <%= link_to membership.user.username, membership.user %>
       </li>
   <% end %>
 </ul>
+
+
+<% if not @beer_club.memberships.find_by(user_id:current_user.id).nil? and @beer_club.memberships.find_by(user_id:current_user.id).confirmed %>
+  <h2>Applications</h2>
+  <% if @beer_club.memberships.unconfirmed.empty? %>
+    <p>No unconfirmed applications.</p>
+  <% else %>
+    <ul>
+      <% @beer_club.memberships.unconfirmed.each do |application| %>
+        <li>
+          <%= link_to 'Accept', confirm_membership_path(application.id), method: :post, class: 'tool' %>
+          <%= link_to application.user.username, application.user %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
 
 <% if current_user %>
     <% unless @beer_club.memberships.find_by user_id:current_user.id %>

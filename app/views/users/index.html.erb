@@ -1,27 +1,7 @@
 <h1>Listing users</h1>
 
 <% if not @users.empty? %>
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.username, user %></td>
-      </tr>
-    <% end %>
-  </tbody>
-
-  <tfoot>
-    <tr>
-      <th>Username</th>
-    </tr>
-  </tfoot>
-</table>
+    <%= render 'list', users:@users %>
 <% else %>
     No known users.
 <% end %>

@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
     query = 'SELECT style_id, avg(score) AS average FROM ratings LEFT OUTER JOIN beers ON ratings.beer_id = beers.id GROUP BY style_id ORDER BY average DESC'
     style_id = ActiveRecord::Base.connection.execute(query).first['style_id']
     Style.find(style_id)
-
   end
 
   def favourite_brewery
@@ -32,6 +31,10 @@ class User < ActiveRecord::Base
     query = 'SELECT breweries.id, avg(score) AS average FROM ratings LEFT OUTER JOIN beers ON ratings.beer_id = beers.id LEFT OUTER JOIN breweries ON beers.brewery_id = breweries.id GROUP BY breweries.id ORDER BY average DESC'
     favourite_brewery_id = ActiveRecord::Base.connection.execute(query).first['id']
     Brewery.find(favourite_brewery_id)
+  end
+
+  def self.most_ratings(number)
+    User.joins(:ratings).group('users.id').order('count(ratings.id) DESC').limit(number)
   end
 
 end

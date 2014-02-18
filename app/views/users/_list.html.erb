@@ -1,0 +1,21 @@
+<table>
+  <thead>
+  <tr>
+    <th>Username</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, user %></td>
+      </tr>
+  <% end %>
+  </tbody>
+
+  <tfoot>
+  <tr>
+    <th>Username</th>
+  </tr>
+  </tfoot>
+</table>

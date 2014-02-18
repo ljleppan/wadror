@@ -1,35 +1,17 @@
 <h1>Listing breweries</h1>
 
-<p> Number of breweries: <%= @breweries.count %> </p> 
-
-<% if not @breweries.empty? %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @breweries.each do |brewery| %>
-      <tr>
-        <td><%= link_to brewery.name, brewery %></td>
-        <td><%= brewery.year %></td>
-      </tr>
-    <% end %>
-  </tbody>
-
-  <tfoot>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-    </tr>
-  </tfoot>
-</table>
-
+<h2>Active</h2>
+<% if not @active_breweries.empty? %>
+    <%= render 'list', breweries:@active_breweries %>
 <% else %>
-    no known breweries.
+    no known active breweries.
+<% end %>
+
+<h2>Retired</h2>
+<% if not @retired_breweries.empty? %>
+    <%= render 'list', breweries:@retired_breweries %>
+<% else %>
+    no known active breweries.
 <% end %>
 
 <%= link_to 'New Brewery', new_brewery_path if current_user %><br/>

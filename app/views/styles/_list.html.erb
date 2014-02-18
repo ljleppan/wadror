@@ -1,0 +1,17 @@
+<table>
+  <thead>
+  <th>Name</th>
+  </thead>
+
+  <tbody>
+  <% styles.each do |style| %>
+      <tr>
+        <td><%= link_to style.name, style %></td>
+      </tr>
+  <% end %>
+  </tbody>
+
+  <tfoot>
+  <th>Name</th>
+  </tfoot>
+</table>

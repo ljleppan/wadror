@@ -36,13 +36,22 @@
 
 <h2>Memberships</h2>
 <ul>
-  <% @user.beer_clubs.each do |club| %>
+  <% @user.memberships.confirmed.each do |membership| %>
   <li>
-    <%= link_to club.name, club %>
+    <%= link_to membership.beer_club.name, membership.beer_club %>
   </li>
   <% end %>
 </ul>
-<br>
+
+<% unless @user.memberships.unconfirmed.empty? %>
+  <h3>Unconfirmed membership applications</h3>
+  <ul>
+    <% @user.memberships.unconfirmed.each do |application| %>
+      <li> <%= link_to application.beer_club.name, application.beer_club %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h2>Ratings</h2>
 
 <% if not @user.ratings.empty? %>

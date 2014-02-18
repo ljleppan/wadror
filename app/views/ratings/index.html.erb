@@ -1,56 +1,31 @@
 <h1>Listing ratings</h1>
 
-<p> Number of ratings: <%= @ratings.count %> </p>
-
-<% if not @ratings.empty? %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Beer</th>
-      <th>Style</th>
-      <th>Brewery</th>
-      <th>Score</th>
-      <th>User</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ratings.each do |rating| %>
-    <tr>
-      <td>
-        <%= link_to rating.beer.name, rating.beer %>
-      </td>
-      <td>
-        <%= link_to rating.beer.style, rating.beer.style%>
-      </td>
-      <td>
-        <%= link_to rating.beer.brewery.name, rating.beer.brewery %>
-      </td>
-      <td>
-        <%= rating.score %>
-      </td>
-      <td>
-        <%= link_to rating.user.username, rating.user %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-
-  <tfoot>
-    <tr>
-      <th>Beer</th>
-      <th>Style</th>
-      <th>Brewery</th>
-      <th>Score</th>
-      <th>User</th>
-    </tr>
-  </tfoot>
-
-</table>
-
+<h2>Newest ratings</h2>
+<% if not @most_recent_ratings.empty? %>
+    <%= render 'list', ratings:@most_recent_ratings %>
 <% else %>
   No known ratings.
+<% end %>
+
+<% unless @users_with_most_ratings.empty? %>
+    <h2>Users with most ratings</h2>
+   <%= render 'users/list', users:@users_with_most_ratings %>
+<% end %>
+
+<% unless @best_breweries.empty? %>
+    <h2>Best breweries</h2>
+    <%= render 'breweries/list', breweries:@best_breweries %>
+<% end %>
+
+
+<% unless @best_beers.empty? %>
+    <h2>Best beers</h2>
+    <%= render 'beers/list', beers:@best_beers %>
+<% end %>
+
+<% unless @best_styles.empty? %>
+    <h2>Best styles</h2>
+    <%= render 'styles/list', styles:@best_styles %>
 <% end %>
 
 <p><%= link_to 'New rating', new_rating_path if current_user %></p>

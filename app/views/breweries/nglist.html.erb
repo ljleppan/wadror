@@ -1,0 +1,47 @@
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+<script>
+    function BreweriesController($scope, $http) {
+        $http.get('breweries.json').success( function(data, status, headers, config) {
+            $scope.breweries = data;
+        });
+
+        $scope.order = 'name';
+
+        $scope.click = function (order){
+            $scope.order = order;
+            console.log(order);
+        }
+
+        $scope.searchText = '';
+    }
+</script>
+
+<h1>Breweries</h1>
+
+<div ng-app ng-controller="BreweriesController">
+  <form>
+    <label for="search">Search</label> <br/>
+    <input type="text" name="search" ng-model="searchText" />
+  </form>
+
+  <table>
+    <thead>
+    <th> <a ng-click="click('name')">Name</a> </th>
+    <th> <a ng-click="click('year')">Year</a> </th>
+    <th> <a ng-click="click('beers.count')">Beers</a> </th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="brewery in breweries| orderBy:order | filter:searchText">
+        <td>{{brewery.name}}</td>
+        <td>{{brewery.year}}</td>
+        <td>{{brewery.beers.count}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <th> <a ng-click="click('name')">Name</a> </th>
+      <th> <a ng-click="click('year')">Year</a> </th>
+      <th> <a ng-click="click('beers')">Beers</a> </th>
+    </tfoot>
+  </table>
+
+</div>

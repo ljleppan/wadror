@@ -1,0 +1,27 @@
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Founded</th>
+    <th>City</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% beer_clubs.each do |beer_club| %>
+      <tr>
+        <td><%= link_to beer_club.name, beer_club %></td>
+        <td><%= beer_club.founded %></td>
+        <td><%= beer_club.city %></td>
+      </tr>
+  <% end %>
+  </tbody>
+
+  <tfoot>
+  <tr>
+    <th>Name</th>
+    <th>Founded</th>
+    <th>City</th>
+  </tr>
+  </tfoot>
+</table>

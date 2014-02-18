@@ -122,6 +122,14 @@ h1:before{
   color: $logo;
 }
 
+h1 .retired{
+  font-size: 0.75em;
+}
+
+.retired{
+  color: red;
+}
+
 h2, h3, p, ul{
   margin-bottom: 20px;
 }
@@ -289,7 +297,6 @@ form label{
   border-radius: 0;
   border-width: 1px;
   display: inline-block;
-  width: 75px;
   margin: 0;
   margin-left: -2px;
   margin-right: -3px;
@@ -307,4 +314,12 @@ form label{
 
 iframe{
   border: 1px solid $bordercolor;
+}
+
+.tool{
+  border: 1px solid $bordercolor;
+  padding: 2px;
+  text-decoration: none;
+  background-color: $btn-bg;
+  border-radius: 3px;
 }

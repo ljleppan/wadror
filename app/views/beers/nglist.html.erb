@@ -1,0 +1,40 @@
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+<script>
+    function BeersController($scope, $http) {
+        $http.get('beers.json').success( function(data, status, headers, config) {
+            $scope.beers = data;
+        });
+
+        $scope.order = 'name';
+
+        $scope.click = function (order){
+            $scope.order = order;
+            console.log(order);
+        }
+
+        $scope.searchText = '';
+    }
+</script>
+
+<h1>Beers</h1>
+
+<div ng-app ng-controller="BeersController">
+  <form>
+    <label for="search">Search</label> <br/>
+    <input type="text" name="search" ng-model="searchText" />
+  </form>
+
+  <table>
+    <thead>
+      <th> <a ng-click="click('name')">Name</a> </th>
+      <th> <a ng-click="click('style.name')">Style</a> </th>
+      <th> <a ng-click="click('brewery.name')">Brewery</a> </th>
+    </thead>
+    <tr ng-repeat="beer in beers| orderBy:order | filter:searchText">
+      <td>{{beer.name}}</td>
+      <td>{{beer.style.name}}</td>
+      <td>{{beer.brewery.name}}</td>
+    </tr>
+  </table>
+
+</div>

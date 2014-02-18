@@ -5,6 +5,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'httparty'
 gem 'rails-settings-cached', '0.3.1'
+gem 'jquery-turbolinks'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -21,6 +22,8 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner', '< 1.1.0'
 end
 
 group :production do
