@@ -28,7 +28,7 @@
   <% if @brewery.ratings.empty? %>
       The brewery has no ratings!
   <% else %>
-      Has <%=pluralize(@brewery.ratings.count, 'rating')%>, average rating <%= @brewery.average_rating %>
+      Has <%=pluralize(@brewery.ratings.count, 'rating')%>, average rating <%= round(@brewery.average_rating) %>
   <% end %>
 </p>
 

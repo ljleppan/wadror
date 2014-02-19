@@ -102,6 +102,9 @@ class BeersController < ApplicationController
 
     def skip_if_cached
       @order = params[:order] || 'name'
-      return render :index if fragment_exist? "beerlist-#{@order}"
+      respond_to do |format|
+        format.html { return render :index if fragment_exist? "beerlist-#{@order}" }
+        format.json {}
+      end
     end
 end

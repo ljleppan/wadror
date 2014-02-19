@@ -16,7 +16,7 @@ Ratebeer::Application.routes.draw do
   end
 
   root 'breweries#index'
-  get 'ngbrewerylist', to:'breweries#nglist'
+  get 'brewerylist', to:'breweries#nglist'
 
   resources :styles
 

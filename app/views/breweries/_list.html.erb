@@ -4,11 +4,9 @@
       <% if current_page?(breweries_path) or current_page?(root_path) %>
         <th> <%= link_to 'Name', breweries_path(order:'name') %> </th>
         <th> <%= link_to 'Year', breweries_path(order:'year') %> </th>
-        <th>Average Rating</th>
       <% else %>
         <th>Name</th>
         <th>Year</th>
-        <th>Average Rating</th>
       <% end %>
     </tr>
   </thead>
@@ -18,7 +16,6 @@
       <tr>
         <td><%= link_to brewery.name, brewery %></td>
         <td><%= brewery.year %></td>
-        <td><%#= round(brewery.average_rating) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,11 +25,9 @@
       <% if current_page?(breweries_path) %>
         <th> <%= link_to 'Name', breweries_path(order:'name') %> </th>
         <th> <%= link_to 'Year', breweries_path(order:'year') %> </th>
-        <th>Average Rating</th>
       <% else %>
         <th>Name</th>
         <th>Year</th>
-        <th>Average Rating</th>
       <% end %>
     </tr>
   </tfoot>

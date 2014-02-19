@@ -34,6 +34,6 @@ class Brewery < ActiveRecord::Base
   end
 
   def self.top(number)
-    all.sort_by{ |b| -(b.average_rating or 0) }.take number
+    all.includes(:ratings).sort_by{ |b| -(b.average_rating or 0) }.take number
   end
 end

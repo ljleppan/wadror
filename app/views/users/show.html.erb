@@ -7,7 +7,7 @@
 <p>
   Has made <%= pluralize(@user.ratings.count, 'rating') %>
   <% if @user.ratings.exists? %>
-    averaging <%= @user.average_rating %>
+    averaging <%= round(@user.average_rating) %>
   <% end %>
 </p>
 

@@ -11,8 +11,8 @@
   <% users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
-        <td><%= user.beers.count %></td>
-        <td><%= user.ratings.count %></td>
+        <td><%= user.beers.length %></td>
+        <td><%= user.ratings.length %></td>
       </tr>
   <% end %>
   </tbody>

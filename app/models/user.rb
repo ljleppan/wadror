@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   end
 
   def self.most_ratings(number)
-    User.all.sort_by{ |u| -u.ratings.count }.take number
+    User.all.sort_by{ |u| -u.ratings.length }.take number
   end
 
 end

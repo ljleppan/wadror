@@ -7,7 +7,7 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.includes(:ratings, :beers).load
+    @breweries = Brewery.all.includes(:ratings, :beers)
     @active_breweries = Brewery.includes(:ratings, :beers).active
     @retired_breweries = Brewery.includes(:ratings, :beers).retired
 
@@ -107,8 +107,12 @@ class BreweriesController < ApplicationController
       params.require(:brewery).permit(:name, :year, :active)
     end
 
+    # Check cache in case of html request, if json just run with it
     def skip_if_cached
       @order = params[:order] || 'name'
-      return render :index if fragment_exist? "brewerylist-#{@order}"
+      respond_to do |format|
+        format.html{ return render :index if fragment_exist? "brewerylist-#{@order}" }
+        format.json{}
+      end
     end
 end
