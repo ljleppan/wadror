@@ -36,7 +36,7 @@ describe 'Ratings page' do
   it 'should be empty if no ratings exist' do
     visit ratings_path
     expect(page).to have_content 'Listing ratings'
-    expect(page).to have_content 'Number of ratings: 0'
+    expect(page).to have_content 'No known ratings'
   end
 
   it 'should list all the ratings in the database' do
@@ -44,8 +44,6 @@ describe 'Ratings page' do
     FactoryGirl.create(:rating, score:15, beer:beer2, user:user)
 
     visit ratings_path
-
-    expect(page).to have_content 'Number of ratings: 2'
     expect(page).to have_content 'Iso 3'
     expect(page).to have_content 'Karhu'
   end

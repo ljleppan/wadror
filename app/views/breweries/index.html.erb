@@ -6,14 +6,14 @@
 <% if not @active_breweries.empty? %>
     <%= render 'list', breweries:@active_breweries %>
 <% else %>
-    no known active breweries.
+    No known active breweries.
 <% end %>
 
 <h2>Retired</h2>
 <% if not @retired_breweries.empty? %>
     <%= render 'list', breweries:@retired_breweries %>
 <% else %>
-    no known active breweries.
+    No known retired breweries.
 <% end %>
 
 <% end %>

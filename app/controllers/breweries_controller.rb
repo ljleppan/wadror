@@ -7,7 +7,7 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.includes(:ratings, :beers).all
+    @breweries = Brewery.includes(:ratings, :beers).load
     @active_breweries = Brewery.includes(:ratings, :beers).active
     @retired_breweries = Brewery.includes(:ratings, :beers).retired
 

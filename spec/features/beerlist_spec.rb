@@ -38,6 +38,7 @@ describe 'beerlist page' do
 
   it 'is ordered by name by default', js:true do
     visit beerlist_path
+    sleep 3
     find('tbody').find('tr:nth-child(1)').should have_content('Fastenbier')
     find('tbody').find('tr:nth-child(2)').should have_content('Lechte Weisse')
     find('tbody').find('tr:nth-child(3)').should have_content('Nikolai')
@@ -47,6 +48,7 @@ describe 'beerlist page' do
   it 'should be ordered by style after clicking style column header', js:true do
     visit beerlist_path
     click_link 'Style'
+    sleep 3
     find('tbody').find('tr:nth-child(1)').should have_content('Lager')
     find('tbody').find('tr:nth-child(2)').should have_content('Rauchbier')
     find('tbody').find('tr:nth-child(3)').should have_content('Weizen')
@@ -55,6 +57,7 @@ describe 'beerlist page' do
   it 'should be ordered by brewery name after clicking brewery column header', js:true do
     visit beerlist_path
     click_link 'Brewery'
+    sleep 3
     find('tbody').find('tr:nth-child(1)').should have_content('Ayinger')
     find('tbody').find('tr:nth-child(2)').should have_content('Koff')
     find('tbody').find('tr:nth-child(3)').should have_content('Schlenkerla')
