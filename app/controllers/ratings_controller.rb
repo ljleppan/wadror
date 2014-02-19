@@ -4,9 +4,9 @@ class RatingsController < ApplicationController
     #Cachetaan koko roska 10min expirellä, haetaan tiedot kannasta vain jos cachessa oleva on expiroitunut
     unless Rails.cache.exist? 'ratingslist'
       @most_recent_ratings = Rating.recent.includes(:user, :beer, :beer => :brewery, :beer => :style)
-      @users_with_most_ratings = User.most_ratings(3).includes(:ratings)
-      @best_breweries = Brewery.top(3).includes(:beers, :ratings)
-      @best_beers = Beer.top(3).includes(:style, :ratings)
+      @users_with_most_ratings = User.includes(:ratings).most_ratings(3)
+      @best_breweries = Brewery.top(3)
+      @best_beers = Beer.top(3)
       @best_styles = Style.top(3)
     end
   end

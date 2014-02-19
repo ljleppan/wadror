@@ -21,15 +21,6 @@ class Brewery < ActiveRecord::Base
     end
   end
 
-  def self.best(number)
-    query = "SELECT * FROM breweries WHERE id IN (SELECT breweries.id FROM ratings LEFT OUTER JOIN beers on ratings.beer_id = beers.id LEFT OUTER JOIN breweries ON beers.brewery_id = breweries.id GROUP BY breweries.id ORDER BY avg(score) DESC) LIMIT #{number}"
-    ActiveRecord::Base.connection.execute(query)
-  end
-
-  def self.top(number)
-    Brewery.joins(:ratings, :beers).group('breweries.id', 'beers.id', 'ratings.id').order('avg(score) DESC').limit(number)
-  end
-
   def print_report
     puts name
     puts "established at year #{year}"
@@ -40,5 +31,9 @@ class Brewery < ActiveRecord::Base
   def restart
     self.year = 2014
     puts "Changer year to #{year}"
+  end
+
+  def self.top(number)
+    all.sort_by{ |b| -(b.average_rating or 0) }.take number
   end
 end

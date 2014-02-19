@@ -12,12 +12,7 @@ class Beer < ActiveRecord::Base
     "#{self.name} (#{self.brewery.name})"
   end
 
-  def self.with_best_average(number)
-    query = "SELECT * FROM users WHERE id IN (SELECT user_id FROM ratings GROUP BY user_id ORDER BY count(*) DESC LIMIT #{number})"
-    ActiveRecord::Base.connection.execute(query)
-  end
-
   def self.top(number)
-    Beer.joins(:ratings).group('beers.id', 'ratings.id').order('avg(score) DESC').limit(number)
+    all.sort_by{ |b| -(b.average_rating or 0) }.take number
   end
 end
