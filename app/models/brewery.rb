@@ -27,7 +27,7 @@ class Brewery < ActiveRecord::Base
   end
 
   def self.top(number)
-    Brewery.joins(:ratings, :beers).group('breweries.id').order('avg(score) DESC').limit(number)
+    Brewery.joins(:ratings, :beers).group('breweries.id', 'beers.id', 'ratings.id').order('avg(score) DESC').limit(number)
   end
 
   def print_report
