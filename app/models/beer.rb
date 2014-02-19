@@ -17,8 +17,6 @@ class Beer < ActiveRecord::Base
     ActiveRecord::Base.connection.execute(query)
   end
 
-  '.id, avg(score) AS average FROM ratings LEFT OUTER JOIN beers ON ratings.beer_id = beers.id LEFT OUTER JOIN breweries ON beers.brewery_id = breweries.id GROUP BY breweries.id ORDER BY average DESC'
-
   def self.top(number)
     Beer.joins(:ratings).group('beers.id', 'ratings.id').order('avg(score) DESC').limit(number)
   end
