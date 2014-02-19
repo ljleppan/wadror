@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="debce1c3-e01d-4e82-a652-8f159a3352b7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/beer.rb" afterPath="$PROJECT_DIR$/app/models/beer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/brewery.rb" afterPath="$PROJECT_DIR$/app/models/brewery.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ratings/index.html.erb" afterPath="$PROJECT_DIR$/app/views/ratings/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ratings_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ratings_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/style.rb" afterPath="$PROJECT_DIR$/app/models/style.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,7 +29,7 @@
       <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="0" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.85962373" vertical-offset="360" max-vertical-offset="1098">
+            <state line="53" column="0" selection-start="1976" selection-end="1976" vertical-scroll-proportion="0.84370476" vertical-offset="371" max-vertical-offset="1098">
               <folding />
             </state>
           </provider>
@@ -849,7 +844,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.85962373" vertical-offset="360" max-vertical-offset="1098">
+        <state line="53" column="0" selection-start="1976" selection-end="1976" vertical-scroll-proportion="0.84370476" vertical-offset="371" max-vertical-offset="1098">
           <folding />
         </state>
       </provider>
