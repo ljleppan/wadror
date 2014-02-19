@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include RatingAverage
 
   validates_uniqueness_of :username
-  validates_length_of :username, {minimum: 3, maximum: 15}
+  validates_length_of :username, {minimum: 3, maximum: 30}
   validates_length_of :password, minimum: 4
   validates_format_of :password, with: /[A-Z]/
   validates_format_of :password, with: /[0-9]/
@@ -13,6 +13,21 @@ class User < ActiveRecord::Base
   has_many :beers, through: :ratings
   has_many :memberships
   has_many :beer_clubs, through: :memberships
+
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.username = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      o = [('a'..'z'), ('A'..'Z'), ('0'..'9'), ('!'..'?')].map { |i| i.to_a }.flatten
+      password = (0...50).map { o[rand(o.length)] }.join
+      user.password = password
+      user.password_confirmation = password
+      user.save!
+    end
+  end
 
   def favourite_beer
     return nil if ratings.empty?

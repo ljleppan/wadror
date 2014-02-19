@@ -1,6 +1,7 @@
 class RatingsController < ApplicationController
 
   def index
+    #Cachetaan koko roska 10min expirellä, haetaan tiedot kannasta vain jos cachessa oleva on expiroitunut
     unless Rails.cache.exist? 'ratingslist'
       @most_recent_ratings = Rating.recent.includes(:user, :beer, :beer => :brewery, :beer => :style)
       @users_with_most_ratings = User.most_ratings(3).includes(:ratings)

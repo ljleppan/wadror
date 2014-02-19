@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'httparty'
 gem 'rails-settings-cached', '0.3.1'
 gem 'jquery-turbolinks'
+gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
