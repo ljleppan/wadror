@@ -2,17 +2,16 @@ class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show, :nglist]
   before_action :ensure_that_admin, only: [:destroy]
+  before_action :skip_if_cached, only: [:index]
 
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.all
-    @active_breweries = Brewery.active
-    @retired_breweries = Brewery.retired
+    @breweries = Brewery.includes(:ratings, :beers).all
+    @active_breweries = Brewery.includes(:ratings, :beers).active
+    @retired_breweries = Brewery.includes(:ratings, :beers).retired
 
-    order = params[:order] || 'name'
-
-    case order
+    case @order
       when 'name' then
         @breweries.sort_by!{ |b| b.name }
         @active_breweries.sort_by!{ |b| b.name }
@@ -50,6 +49,7 @@ class BreweriesController < ApplicationController
 
     respond_to do |format|
       if @brewery.save
+        ["brewerylist-name", "brewerylist-year"].each{ |f| expire_fragment(f) }
         format.html { redirect_to @brewery, notice: 'Brewery was successfully created.' }
         format.json { render action: 'show', status: :created, location: @brewery }
       else
@@ -64,6 +64,7 @@ class BreweriesController < ApplicationController
   def update
     respond_to do |format|
       if @brewery.update(brewery_params)
+        ["brewerylist-name", "brewerylist-year"].each{ |f| expire_fragment(f) }
         format.html { redirect_to @brewery, notice: 'Brewery was successfully updated.' }
         format.json { head :no_content }
       else
@@ -77,6 +78,7 @@ class BreweriesController < ApplicationController
   # DELETE /breweries/1.json
   def destroy
     @brewery.destroy
+    ["brewerylist-name", "brewerylist-year"].each{ |f| expire_fragment(f) }
     respond_to do |format|
       format.html { redirect_to breweries_url }
       format.json { head :no_content }
@@ -89,6 +91,7 @@ class BreweriesController < ApplicationController
     brewery.update_attribute :active, (not brewery.active)
 
     new_status = brewery.active? ? "active" : "retired"
+    ["brewerylist-name", "brewerylist-year"].each{ |f| expire_fragment(f) }
 
     redirect_to :back, notice:"Brewery activity status changed to #{new_status}"
   end
@@ -102,5 +105,10 @@ class BreweriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
       params.require(:brewery).permit(:name, :year, :active)
+    end
+
+    def skip_if_cached
+      @order = params[:order] || 'name'
+      return render :index if fragment_exist? "brewerylist-#{@order}"
     end
 end

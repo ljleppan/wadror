@@ -2,6 +2,8 @@
   <thead>
   <tr>
     <th>Username</th>
+    <th>Rated beers</th>
+    <th>Total ratings</th>
   </tr>
   </thead>
 
@@ -9,6 +11,8 @@
   <% users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
+        <td><%= user.beers.count %></td>
+        <td><%= user.ratings.count %></td>
       </tr>
   <% end %>
   </tbody>
@@ -16,6 +20,8 @@
   <tfoot>
   <tr>
     <th>Username</th>
+    <th>Rated beers</th>
+    <th>Total ratings</th>
   </tr>
   </tfoot>
 </table>

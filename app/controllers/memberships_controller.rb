@@ -70,7 +70,7 @@ class MembershipsController < ApplicationController
   # POST /memberships/1/toggle_activity
   def confirm
     membership = Membership.find(params[:id])
-    if membership.beer_club.memberships.find_by(user_id:current_user.id).nil? or not membership.beer_club.memberships.find_by(user_id:current_user.id).confirmed
+    if not membership.beer_club.member?(current_user)
       redirect_to :back, notice:'You are not a member of this Beer Club'
     else
       membership.confirmed = true

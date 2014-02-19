@@ -24,7 +24,7 @@
 </ul>
 
 
-<% if not @beer_club.memberships.find_by(user_id:current_user.id).nil? and @beer_club.memberships.find_by(user_id:current_user.id).confirmed %>
+<% if @beer_club.member?(current_user) %>
   <h2>Applications</h2>
   <% if @beer_club.memberships.unconfirmed.empty? %>
     <p>No unconfirmed applications.</p>

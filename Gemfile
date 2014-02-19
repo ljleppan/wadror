@@ -13,6 +13,7 @@ gem 'rails', '4.0.2'
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
+  gem 'rack-mini-profiler'
 end
 
 group :test do

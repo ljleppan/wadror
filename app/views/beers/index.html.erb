@@ -1,9 +1,13 @@
 <h1>Listing beers</h1>
 
+<% cache "beerlist-#{@order}", skip_digest:true do %>
+
 <% if not @beers.empty? %>
     <%= render 'list', beers:@beers %>
 <% else %>
     No known beers.
+<% end %>
+
 <% end %>
 
 <%= link_to 'New Beer', new_beer_path if current_user %><br />

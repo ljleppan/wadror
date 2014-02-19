@@ -1,5 +1,7 @@
 <h1>Listing breweries</h1>
 
+<% cache "brewerylist-#{@order}", skip_digest:true do %>
+
 <h2>Active</h2>
 <% if not @active_breweries.empty? %>
     <%= render 'list', breweries:@active_breweries %>
@@ -12,6 +14,8 @@
     <%= render 'list', breweries:@retired_breweries %>
 <% else %>
     no known active breweries.
+<% end %>
+
 <% end %>
 
 <%= link_to 'New Brewery', new_brewery_path if current_user %><br/>

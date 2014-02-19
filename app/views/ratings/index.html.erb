@@ -1,3 +1,5 @@
+<% cache 'ratingslist', skip_digest:true, expires_in:10.minutes do %>
+
 <h1>Listing ratings</h1>
 
 <h2>Newest ratings</h2>
@@ -27,5 +29,7 @@
     <h2>Best styles</h2>
     <%= render 'styles/list', styles:@best_styles %>
 <% end %>
+
+<% end #cache %>
 
 <p><%= link_to 'New rating', new_rating_path if current_user %></p>
