@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   end
 
   def self.most_ratings(number)
-    User.joins(:ratings).group('users.id').order('count(ratings.id) DESC').limit(number)
+    User.joins(:ratings).group('users.id', 'ratings.id').select('users.id').order('count(ratings.id) DESC').limit(number)
   end
 
 end
